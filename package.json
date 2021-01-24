@@ -4,7 +4,7 @@
   "description": "light weight translation library for react",
   "author": "omaksousa",
   "license": "MIT",
-  "repository": "omaksousa/react-i18n",
+  "repository": "TamkeenTech/react-i18n",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.js",
