@@ -1,10 +1,10 @@
 {
-  "name": "react-i18n",
+  "name": "react-i18n-translator",
   "version": "1.0.0",
   "description": "light weight translation library for react",
   "author": "omaksousa",
   "license": "MIT",
-  "repository": "TamkeenTech/react-i18n",
+  "repository": "TamkeenTech/react-i18n-translator",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.js",

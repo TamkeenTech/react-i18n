@@ -1,4 +1,4 @@
-# react-i18n
+# react-i18n-translator
 
 > light weight translation library for react
 

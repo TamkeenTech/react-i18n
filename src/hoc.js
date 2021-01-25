@@ -16,7 +16,9 @@ export function withSyncLang(WrappedComponent) {
     handleAddEventListener = () => this.setState({ updated: Date.now() })
 
     render() {
-      return <WrappedComponent react-i18n-updated={this.state.updated} />
+      return (
+        <WrappedComponent react-i18n-translator-updated={this.state.updated} />
+      )
     }
   }
 }
