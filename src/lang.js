@@ -1,5 +1,10 @@
+const LOCAL_STORAGE_KEY = 'react-i18n-lang'
 const langs = {}
-// let defaultLocale;
+const initialStorageLocale = localStorage.getItem(LOCAL_STORAGE_KEY)
+let defaultLocale
+let isRTL
+let isLTR
+let isPersist = true
 
 const langResource = {
   valueInternal: '',
@@ -18,37 +23,35 @@ const langResource = {
     this.valueListeners = this.valueListeners.filter((lst) => listener !== lst)
   }
 }
-
 let lang = langResource.value
 
-const init = ({ dictionary = [], defLocale, isPersist = true }) => {
-  dictionary.forEach((el, index) => {
-    addLocale(Object.keys(el)[index], el)
-    // defLocale && (defaultLocale = defLocale);
+const init = ({
+  resourses = [],
+  defaultLocale: givenDefaultLocale,
+  isPersist: givenIsPersist = true
+}) => {
+  resourses.forEach((localeResourse) => {
+    addLocale(
+      localeResourse.locale,
+      localeResourse.dictionary,
+      localeResourse.options
+    )
   })
+  defaultLocale = givenDefaultLocale
+  if (!initialStorageLocale || (!givenIsPersist && givenDefaultLocale)) {
+    setLocale(givenDefaultLocale)
+  }
+  if (givenIsPersist) {
+    isPersist = givenIsPersist
+  }
 }
 
-// const initialLanguage = localStorage.getItem('lang');
-
-// let parsedInitialLanguage;
-
-// try {
-//   parsedInitialLanguage = JSON.parse(initialLanguage);
-// } catch (err) {
-//   parsedInitialLanguage = initialLanguage;
-// }
-
-// lang = langs[defaultLocale]
-// let isAR = parsedInitialLanguage
-//   ? parsedInitialLanguage === 'ar'
-//   : defaultLocale === 'ar'
-// let isEN = parsedInitialLanguage
-//   ? parsedInitialLanguage === 'en'
-//   : defaultLocale === 'en'
-
-// const addDefaultLocale = (locale) => {
-//   defaultLocale = locale;
-// };
+const addDefaultLocale = (locale) => {
+  defaultLocale = locale
+  if (!initialStorageLocale || (!isPersist && locale)) {
+    setLocale(locale)
+  }
+}
 
 const addLocale = (locale, dictionary, options = {}) => {
   langs[locale] = {
@@ -57,48 +60,73 @@ const addLocale = (locale, dictionary, options = {}) => {
     isRTL: options.isRTL,
     fontFamily: options.fontFamily
   }
+  if (isPersist && locale === initialStorageLocale) {
+    setLocale(locale)
+  }
 }
 
 const setLocale = (lg) => {
-  langResource.value = langs[lg].dictionary
-  lang = langs[lg].dictionary
+  const langObject = langs[lg]
+  langResource.value = langObject.dictionary
+  lang = langObject.dictionary
+  isRTL = langObject.isRTL
+  isLTR = !langObject.isRTL
   const HTMLNode = document.getElementsByTagName('html')[0]
   const bodyNode = document.getElementsByTagName('body')[0]
-  HTMLNode.setAttribute('lang', lang.locale)
-  bodyNode.style.fontFamily = lang.fontFamily
-  HTMLNode.setAttribute('dir', lang.isRTL ? 'rtl' : 'ltr')
-  bodyNode.dir = lang.isRTL ? 'rtl' : 'ltr'
-  bodyNode.style.textAlign = lang.isRTL ? 'right' : 'left'
+  if (langObject.locale) {
+    HTMLNode.setAttribute('lang', langObject.locale)
+  }
+  if (langObject.fontFamily) {
+    langObject.fontFamily && (bodyNode.style.fontFamily = langObject.fontFamily)
+  }
+  HTMLNode.setAttribute('dir', langObject.isRTL ? 'rtl' : 'ltr')
+  bodyNode.dir = langObject.isRTL ? 'rtl' : 'ltr'
+  bodyNode.style.textAlign = langObject.isRTL ? 'right' : 'left'
+  if (isPersist) {
+    localStorage.setItem(LOCAL_STORAGE_KEY, lg)
+  }
 }
 
 // TODO: CHANGE IT TO REGEX
 const interpolate = (path, obj) => {
   if (!path) {
     /* eslint-disable */
-    console.error("Path paramter inside interpolate function is not a string, Path: ", path)
+    console.error(
+      'Path paramter inside interpolate function is not a string, Path: ',
+      path
+    )
   }
   let branch = lang
   let subPath = path
-  let hasNext = subPath.indexOf(".") > -1
+  let hasNext = subPath.indexOf('.') > -1
   while (hasNext) {
-    const key = subPath.slice(0, subPath.indexOf("."))
+    const key = subPath.slice(0, subPath.indexOf('.'))
     branch = branch[key]
     if (!branch) {
-      return "Translation not found"
+      return 'Translation not found'
     }
-    subPath = subPath.slice(subPath.indexOf(".") + 1)
-    hasNext = subPath.indexOf(".") > -1
+    subPath = subPath.slice(subPath.indexOf('.') + 1)
+    hasNext = subPath.indexOf('.') > -1
   }
   branch = branch[subPath] || subPath
 
   let interpolatedString = branch
   if (obj) {
-    Object.keys(obj).forEach(key => {
+    Object.keys(obj).forEach((key) => {
       interpolatedString = interpolatedString.replace(`{{${key}}}`, obj[key])
     })
   }
   return interpolatedString
 }
 
-
-export { init, lang, setLocale, interpolate, addLocale, langResource }
+export {
+  init,
+  lang,
+  setLocale,
+  interpolate,
+  addLocale,
+  langResource,
+  addDefaultLocale,
+  isRTL,
+  isLTR
+}
