@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react'
-import { lang, addLocale, setLocale, init } from 'react-i18n'
+import { lang, setLocale, init } from 'react-i18n-translator'
 import ar from './lang/ar.json'
 import en from './lang/en.json'
 import es from './lang/es.json'
