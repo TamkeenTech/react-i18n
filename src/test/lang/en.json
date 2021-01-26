@@ -1,0 +1,9 @@
+{
+    "welcome": "Welcome",
+    "desc": "Choose a language from the buttons below to change translation",
+    "btns": {
+        "toEnglish": "English",
+        "toArabic": "Translate to Arabic",
+        "toSpanish": "Translate to Spanish"
+    }
+}

@@ -1,6 +1,7 @@
 const LOCAL_STORAGE_KEY = 'react-i18n-translator-lang'
 const initialStorageLocale = localStorage.getItem(LOCAL_STORAGE_KEY)
 const langs = {}
+// eslint-disable-next-line no-unused-vars
 let defaultLocale
 let isRTL
 let isLTR

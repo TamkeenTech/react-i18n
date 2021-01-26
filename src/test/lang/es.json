@@ -1,0 +1,9 @@
+{
+    "welcome": "Hola",
+    "desc": "Elija un idioma de los botones a continuación para cambiar la traducción",
+    "btns": {
+        "toEnglish": "Traducir a Inglés",
+        "toArabic": "Traducir al árabe",
+        "toSpanish": "Española"
+    }
+}

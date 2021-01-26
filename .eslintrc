@@ -31,6 +31,7 @@
     "import/export": 0
   },
   "globals": {
-    "localStorage":true
+    "localStorage":true,
+    "it":true
   }
 }
