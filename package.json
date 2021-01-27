@@ -27,6 +27,7 @@
     "react": "^16.0.0"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.3",
     "babel-eslint": "^10.0.3",
     "cross-env": "^7.0.2",

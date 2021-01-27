@@ -70,7 +70,7 @@ const setLocale = (lg) => {
   const langObject = langs[lg]
   langResource.value = langObject.dictionary
   lang = langObject.dictionary
-  isRTL = langObject.isRTL
+  isRTL = !!langObject.isRTL
   isLTR = !langObject.isRTL
   const HTMLNode = document.getElementsByTagName('html')[0]
   const bodyNode = document.getElementsByTagName('body')[0]

@@ -39,10 +39,12 @@ describe('lang', () => {
       </div>
     `)
   })
-  it('should be able to change locale from English to Arabic after component rendering', () => {
+
+  it('should be able to change locale from English to Arabic after component rerendering', () => {
     setup('en')
+    const { container, rerender } = render(<TestComponent />)
     setLocale('ar')
-    const { container } = render(<TestComponent />)
+    rerender(<TestComponent />)
     expect(container.firstChild).toMatchInlineSnapshot(`
       <div>
         مرحبا

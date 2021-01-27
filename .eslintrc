@@ -32,6 +32,7 @@
   },
   "globals": {
     "localStorage":true,
-    "it":true
+    "it":true,
+    "MouseEvent":true
   }
 }

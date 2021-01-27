@@ -1,7 +1,7 @@
 import { init } from '../lang'
-import ar from './lang/ar.json'
-import en from './lang/en.json'
-import es from './lang/es.json'
+import ar from './test-lang/ar.json'
+import en from './test-lang/en.json'
+import es from './test-lang/es.json'
 
 export default function setup(locale) {
   init({
