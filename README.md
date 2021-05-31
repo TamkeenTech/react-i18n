@@ -1,6 +1,6 @@
 # react-i18n-translator
 
-> light weight translation library for react
+> lightweight translation library for React.js
 
 [![NPM](https://img.shields.io/npm/v/react-i18n-translator.svg)](https://www.npmjs.com/package/react-i18n-translator) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
@@ -17,21 +17,33 @@ npm install --save react-i18n-translator
 _**lang/en.json**_
 ```json 
 {
-  "welcome": "Welcome"
+  "welcome": "Welcome {{name}}",
+  "submit": "Submit",
+  "errors": {
+    "default": "Something went wrong!"
+  }
 }
 ```
 _**lang/es.json**_
 
 ```json lang/es.json
 {
-  "welcome": "Hola"
+  "welcome": "Hola {{name}}",
+  "submit": "enviar",
+  "errors": {
+    "default": "Algo salió mal!"
+  }
 }
 ```
 _**lang/ar.json**_
 
 ```json lang/ar.json
 {
-  "welcome": "مرحبًا"
+  "welcome": "مرحبًا {{name}}",
+  "submit": "ارسال",
+  "errors": {
+    "default": "حدث خطأ ما!"
+  }
 }
 ```
 
@@ -103,10 +115,21 @@ class App extends React.Component{
 import React from 'react'
 import { lang } from 'react-i18n-translator'
 
-const Hello = () => <h1>{lang.welcome}</h1>
+const Button = () => <button>{lang.submit}</button>
+const ErrorMsg = () => <button>{lang.errors.default}</button>
 ```
 
-### ✣ Usage with Memorized Functional Component
+### ✣ Interpolation
+
+```jsx
+import React from 'react'
+import { interpolate } from 'react-i18n-translator'
+
+const Hello = () => <h1>{interpolate('welcome', { name: "Omar" })}</h1>
+const ErrorMsg = () => <h1>{interpolate('errors.default')}</h1>
+```
+
+### ✣ Usage with Memoized Functional Component
 
 ```jsx
 import React, { memo } from 'react'
@@ -137,8 +160,8 @@ export default withSyncLang(Hello)
 
 ### ✣ Why I18n Translator?
 
-- **Simplicity:**
-- **No Limitation:**
+- **Simplicity**
+- **No Limitation**
 - **lightweight**
 
 ## License
