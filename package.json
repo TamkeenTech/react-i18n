@@ -4,7 +4,10 @@
   "description": "light weight translation library for react",
   "author": "omaksousa",
   "license": "MIT",
-  "repository": "TamkeenTech/react-i18n-translator",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TamkeenTech/react-i18n-translator.git"
+  },
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.js",
@@ -51,5 +54,24 @@
   },
   "files": [
     "dist"
+  ],
+  "bugs": {
+    "url": "https://github.com/TamkeenTech/react-i18n-translator/issues"
+  },
+  "homepage": "https://github.com/TamkeenTech/react-i18n-translator#readme",
+  "directories": {
+    "example": "example"
+  },
+  "dependencies": {},
+  "keywords": [
+    "translation",
+    "lang",
+    "language",
+    "internationalization",
+    "i18n",
+    "localization",
+    "globalization",
+    "react",
+    "reactjs"
   ]
 }

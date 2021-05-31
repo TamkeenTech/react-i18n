@@ -52,17 +52,17 @@ _**lang/ar.json**_
 ```jsx
 import React, { useCallback, useState } from 'react'
 import { lang, setLocale, init } from 'react-i18n-translator'
-import ar from './lang/ar.json'
-import en from './lang/en.json'
-import es from './lang/es.json'
+import arDictionary from './lang/ar.json'
+import enDictionary from './lang/en.json'
+import esDictionary from './lang/es.json'
 
 init({
   resourses: [
-    { locale: 'en', dictionary: en },
-    { locale: 'es', dictionary: es },
+    { locale: 'en', dictionary: enDictionary },
+    { locale: 'es', dictionary: esDictionary },
     {
       locale: 'ar',
-      dictionary: ar,
+      dictionary: arDictionary,
       options: { isRTL: true }
     }
   ],
@@ -79,20 +79,20 @@ const App = () => {
 ```jsx
 import React, { useCallback, useState } from 'react'
 import { lang, setLocale, init } from 'react-i18n-translator'
-import ar from './lang/ar.json'
-import en from './lang/en.json'
-import es from './lang/es.json'
+import arDictionary from './lang/ar.json'
+import enDictionary from './lang/en.json'
+import esDictionary from './lang/es.json'
 
 class App extends React.Component{
   constructor(props){
     super(props);
     init({
       resourses: [
-        { locale: 'en', dictionary: en },
-        { locale: 'es', dictionary: es },
+        { locale: 'en', dictionary: enDictionary },
+        { locale: 'es', dictionary: esDictionary },
         {
           locale: 'ar',
-          dictionary: ar,
+          dictionary: arDictionary,
           options: { isRTL: true }
         }
       ],
@@ -158,12 +158,41 @@ class Hello extends React.PureComponent {
 export default withSyncLang(Hello)
 ```
 
-### ✣ Why I18n Translator?
+### ✣ Changing Language
 
+```jsx
+import React, { useState } from 'react'
+import { lang, setLocale} from 'react-i18n-translator'
+
+const App = () => {
+  const changeLanguage = useState()[1];
+  const changeLang = (locale) => {
+    setLocale(locale)
+    changeLanguage(locale)
+  }
+  return (
+    <div>
+      {lang.welcome}
+    </div>
+  )
+}
+```
+
+## API
+| Attribute | Type |  Description |
+| ------ | ------ | ------ |
+| lang | object | An object that holds the selected dictionary |
+| init | function | For initializaion |
+| addLocale | function | Adds new dictionary. It takes two parametes: 1- locale key. 2- dictionary object |
+| setLocale | function | Changes the selected locale to a new one. Takes one parameter: locale key |
+| interpolate | function | Takes two parameters: 1- path to the targeted dictionary key. 2- an object that holds the variables |
+| isRTL | boolean | Flag for checking if the current direction is RTL |
+| isLtr | boolean |  Flag for checking if the current direction is LTR |
+
+## Why I18n Translator?
 - **Simplicity**
 - **No Limitation**
 - **lightweight**
 
 ## License
-
 MIT © [omaksousa](https://github.com/omaksousa)
