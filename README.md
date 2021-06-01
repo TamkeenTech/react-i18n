@@ -47,7 +47,7 @@ _**lang/ar.json**_
 }
 ```
 
-### ✣ Initilizing in Functional Component
+### ✣ Initializing in Functional Component
 
 ```jsx
 import React, { useCallback, useState } from 'react'
@@ -74,7 +74,7 @@ const App = () => {
   return ...
 }
 ```
-### ✣ Initilizing in Class Component
+### ✣ Initializing in Class Component
 
 ```jsx
 import React, { useCallback, useState } from 'react'
