@@ -197,4 +197,8 @@ const App = () => {
 - **lightweight**
 
 ## License
-MIT © [omaksousa](https://github.com/omaksousa)
+MIT © 
+
+## Author
+[omaksousa](https://github.com/omaksousa)
+
