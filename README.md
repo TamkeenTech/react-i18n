@@ -2,7 +2,9 @@
 
 > Lightweight translation library for React.js
 
-[![NPM](https://img.shields.io/npm/v/@tamkeentech/react-i18n.svg)](https://www.npmjs.com/package/@tamkeentech/react-i18n) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/badge/npm-1.0.0-blue)](https://www.npmjs.com/package/@tamkeentech/react-i18n) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+
+![Tamkeentech, Logo](https://i.imgur.com/vwhssu8.png)
 
 ## Installation
 
