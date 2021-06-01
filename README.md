@@ -1,13 +1,13 @@
-# react-i18n-translator
+# @TamkeenTech/react-i18n
 
-> lightweight translation library for React.js
+> Lightweight translation library for React.js
 
-[![NPM](https://img.shields.io/npm/v/react-i18n-translator.svg)](https://www.npmjs.com/package/react-i18n-translator) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/@tamkeentech/react-i18n.svg)](https://www.npmjs.com/package/@tamkeentech/react-i18n) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Installation
 
 ```bash
-npm install --save react-i18n-translator
+npm install --save @tamkeentech/react-i18n
 ```
 
 ## Getting Started
