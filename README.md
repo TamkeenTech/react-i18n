@@ -53,7 +53,7 @@ _**lang/ar.json**_
 
 ```jsx
 import React, { useCallback, useState } from 'react'
-import { lang, setLocale, init } from 'react-i18n-translator'
+import { lang, setLocale, init } from '@tamkeentech/react-i18n'
 import arDictionary from './lang/ar.json'
 import enDictionary from './lang/en.json'
 import esDictionary from './lang/es.json'
@@ -80,7 +80,7 @@ const App = () => {
 
 ```jsx
 import React, { useCallback, useState } from 'react'
-import { lang, setLocale, init } from 'react-i18n-translator'
+import { lang, setLocale, init } from '@tamkeentech/react-i18n'
 import arDictionary from './lang/ar.json'
 import enDictionary from './lang/en.json'
 import esDictionary from './lang/es.json'
@@ -115,7 +115,7 @@ class App extends React.Component{
 
 ```jsx
 import React from 'react'
-import { lang } from 'react-i18n-translator'
+import { lang } from '@tamkeentech/react-i18n'
 
 const Button = () => <button>{lang.submit}</button>
 const ErrorMsg = () => <button>{lang.errors.default}</button>
@@ -125,7 +125,7 @@ const ErrorMsg = () => <button>{lang.errors.default}</button>
 
 ```jsx
 import React from 'react'
-import { interpolate } from 'react-i18n-translator'
+import { interpolate } from '@tamkeentech/react-i18n'
 
 const Hello = () => <h1>{interpolate('welcome', { name: "Omar" })}</h1>
 const ErrorMsg = () => <h1>{interpolate('errors.default')}</h1>
@@ -135,7 +135,7 @@ const ErrorMsg = () => <h1>{interpolate('errors.default')}</h1>
 
 ```jsx
 import React, { memo } from 'react'
-import { lang, useSyncLang } from 'react-i18n-translator'
+import { lang, useSyncLang } from '@tamkeentech/react-i18n'
 
 const Hello = () => {
   useSyncLang()
@@ -149,7 +149,7 @@ export default memo(Hello)
 
 ```jsx
 import React, { memo } from 'react'
-import { lang, withSyncLang } from 'react-i18n-translator'
+import { lang, withSyncLang } from '@tamkeentech/react-i18n'
 
 class Hello extends React.PureComponent {
   render() {
@@ -164,7 +164,7 @@ export default withSyncLang(Hello)
 
 ```jsx
 import React, { useState } from 'react'
-import { lang, setLocale} from 'react-i18n-translator'
+import { lang, setLocale} from '@tamkeentech/react-i18n'
 
 const App = () => {
   const changeLanguage = useState()[1];
