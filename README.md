@@ -53,7 +53,7 @@ _**lang/ar.json**_
 
 ```jsx
 import React, { useCallback, useState } from 'react'
-import { lang, setLocale, init } from '@tamkeentech/react-i18n'
+import { init } from '@tamkeentech/react-i18n'
 import arDictionary from './lang/ar.json'
 import enDictionary from './lang/en.json'
 import esDictionary from './lang/es.json'
@@ -80,7 +80,7 @@ const App = () => {
 
 ```jsx
 import React, { useCallback, useState } from 'react'
-import { lang, setLocale, init } from '@tamkeentech/react-i18n'
+import { init } from '@tamkeentech/react-i18n'
 import arDictionary from './lang/ar.json'
 import enDictionary from './lang/en.json'
 import esDictionary from './lang/es.json'
