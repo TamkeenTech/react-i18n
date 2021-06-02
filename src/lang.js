@@ -27,11 +27,11 @@ const langResource = {
 let lang = langResource.value
 
 const init = ({
-  resourses = [],
+  resources = [],
   defaultLocale: givenDefaultLocale,
   isPersist: givenIsPersist = true
 }) => {
-  resourses.forEach((localeResourse) => {
+  resources.forEach((localeResourse) => {
     addLocale(
       localeResourse.locale,
       localeResourse.dictionary,

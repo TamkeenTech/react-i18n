@@ -59,7 +59,7 @@ import enDictionary from './lang/en.json'
 import esDictionary from './lang/es.json'
 
 init({
-  resourses: [
+  resources: [
     { locale: 'en', dictionary: enDictionary },
     { locale: 'es', dictionary: esDictionary },
     {
@@ -89,7 +89,7 @@ class App extends React.Component{
   constructor(props){
     super(props);
     init({
-      resourses: [
+      resources: [
         { locale: 'en', dictionary: enDictionary },
         { locale: 'es', dictionary: esDictionary },
         {
@@ -148,7 +148,7 @@ export default memo(Hello)
 ### ✣ Usage with PureComponent
 
 ```jsx
-import React, { memo } from 'react'
+import React from 'react'
 import { lang, withSyncLang } from '@tamkeentech/react-i18n'
 
 class Hello extends React.PureComponent {
@@ -164,17 +164,22 @@ export default withSyncLang(Hello)
 
 ```jsx
 import React, { useState } from 'react'
-import { lang, setLocale} from '@tamkeentech/react-i18n'
+import { lang, setLocale } from '@tamkeentech/react-i18n'
 
 const App = () => {
   const changeLanguage = useState()[1];
-  const changeLang = (locale) => {
-    setLocale(locale)
-    changeLanguage(locale)
+  const switchToEnglish = () => {
+    setLocale("en")
+    changeLanguage("en")
   }
   return (
     <div>
-      {lang.welcome}
+      <Hello />
+      <div>
+        <button onClick={switchToEnglish}>
+          {lang.btns.toEnglish}
+        </button>
+      </div>
     </div>
   )
 }

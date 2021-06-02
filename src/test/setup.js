@@ -5,7 +5,7 @@ import es from './test-lang/es.json'
 
 export default function setup(locale) {
   init({
-    resourses: [
+    resources: [
       {
         locale: 'ar',
         dictionary: ar,
